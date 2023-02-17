@@ -1,8 +1,8 @@
 {
-  "name": "vscode-mta-tools",
+  "name": "young-yang217-vscode-mta-tools",
   "displayName": "vscode-mta-tools",
   "description": "VS Code Multi-Target Application tools",
-  "version": "1.4.8",
+  "version": "1.4.24",
   "publisher": "SAPSE",
   "license": "Apache-2.0",
   "repository": {
@@ -203,6 +203,9 @@
       }
     }
   },
+  "files": [
+    "young-yang217-vscode-mta-tools-1.4.24.vsix"
+  ],
   "scripts": {
     "version:suggest": "conventional-recommended-bump -preset=\"angular\"",
     "version": "npm run version:changelog -s && git add CHANGELOG.md",
