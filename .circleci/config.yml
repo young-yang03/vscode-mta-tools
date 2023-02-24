@@ -58,7 +58,7 @@ jobs:
       - run:
           name: "Build Npmjs Package"
           command: |
-            cp vscode-mta-tools-*.vsix ./README.MD ./LICENSE ./npmjs-info
+            cp vscode-mta-tools-*.vsix ./README.MD ./LICENSE ./github-rel-env
             cd ./github-rel-env
             npm pack
             echo "list all files:" && ls -la
