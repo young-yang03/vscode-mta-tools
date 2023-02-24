@@ -10,6 +10,7 @@ node_modules
 .github/**
 coverage/**
 tests/**
+npmjs-info/**
 
 # Compiled code is in dist
 out/**
