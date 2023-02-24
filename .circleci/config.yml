@@ -58,12 +58,13 @@ jobs:
       - run:
           name: "Build Npmjs Package"
           command: |
+            echo "list all:" && ls -la
             cp vscode-mta-tools-*.vsix ./README.MD ./LICENSE ./github-rel-env
             cd ./github-rel-env
             npm pack
-            echo "list all files:" && ls -la
+            echo "list all:" && ls -la
       - persist_to_workspace:
-          root: "./npm-pub-env"
+          root: "./github-rel-env"
           paths:
             # https://golang.org/pkg/path/filepath/#Match
             - vscode-mta-tools-*.vsix
@@ -80,7 +81,7 @@ jobs:
       - run:
           name: "Publish Release on GitHub"
           command: |
-            echo "list all files:" && ls -la
+            echo "list all:" && ls -la
             go install github.com/tcnksm/ghr@latest
             VERSION=${CIRCLE_TAG}
             ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${VERSION} ./dist/
