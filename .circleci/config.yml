@@ -64,7 +64,7 @@ jobs:
             npm pack
             echo "list :" && ls -la
       - persist_to_workspace:
-          root: "."
+          root: "./github-rel-env"
           paths:
             # https://golang.org/pkg/path/filepath/#Match
             # - github-rel-env
