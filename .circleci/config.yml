@@ -64,13 +64,14 @@ jobs:
             npm pack
             echo "list all:" && ls -la
       - persist_to_workspace:
-          root: "./github-rel-env"
+          root: "."
           paths:
             # https://golang.org/pkg/path/filepath/#Match
-            - vscode-mta-tools-*.vsix
-            - young-yang217-vscode-mta-tools-*.tgz
-            - README.md
-            - LICENSE
+            - github-rel-env
+            # - vscode-mta-tools-*.vsix
+            # - young-yang217-vscode-mta-tools-*.tgz
+            # - README.md
+            # - LICENSE
 
   release-to-github:
     docker:
