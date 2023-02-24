@@ -59,7 +59,7 @@ jobs:
           name: "Build Npmjs Package"
           command: |
             echo "list all:" && ls -la
-            cp vscode-mta-tools-*.vsix ./README.MD ./LICENSE ./github-rel-env
+            cp vscode-mta-tools-*.vsix ./README.md ./LICENSE ./github-rel-env
             cd ./github-rel-env
             npm pack
             echo "list all:" && ls -la
@@ -69,7 +69,7 @@ jobs:
             # https://golang.org/pkg/path/filepath/#Match
             - vscode-mta-tools-*.vsix
             - young-yang217-vscode-mta-tools-*.tgz
-            - README.MD
+            - README.md
             - LICENSE
 
   release-to-github:
