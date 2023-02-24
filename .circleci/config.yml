@@ -50,28 +50,33 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
-      - run: npm i
-      - run: npm run ci
+      - run:
+          name: "Build VScode Extension"
+          command: |
+            npm i
+            npm run ci
+      - run:
+          name: "Build Npmjs Package"
+          command: |
+            cp vscode-mta-tools-*.vsix ./README.MD ./LICENSE ./npmjs-info
+            cd ./github-rel-env
+            npm pack
+            echo "list all files:" && ls -la
       - persist_to_workspace:
-          root: "."
+          root: "./npm-pub-env"
           paths:
             # https://golang.org/pkg/path/filepath/#Match
             - vscode-mta-tools-*.vsix
+            - young-yang217-vscode-mta-tools-*.tgz
+            - README.MD
+            - LICENSE
 
   release-to-github:
     docker:
       - image: cimg/go:1.19
     steps:
-      - checkout
       - attach_workspace:
           at: ./dist
-      - run:
-          name: "Build Npmjs Package"
-          command: |
-            cp npmjs_info/package.json ./README.MD ./LICENSE ./dist
-            cd ./dist
-            npm pack
-            echo "list all files:" && ls -la
       - run:
           name: "Publish Release on GitHub"
           command: |
