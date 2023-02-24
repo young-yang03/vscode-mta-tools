@@ -56,7 +56,7 @@ jobs:
           root: "."
           paths:
             # https://golang.org/pkg/path/filepath/#Match
-            - *.vsix
+            - vscode-mta-tools-*.vsix
 
   release-to-github:
     docker:
