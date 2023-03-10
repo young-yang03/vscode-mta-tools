@@ -133,6 +133,8 @@ workflows:
               ignore: /.*/
       - release-to-github:
           requires:
+            - build-node10
+            - build-node12
             - build-node14
             - build-node16
           filters:
@@ -142,6 +144,8 @@ workflows:
               ignore: /.*/
       - publish-to-npm:
           requires:
+            - build-node10
+            - build-node12
             - build-node14
             - build-node16
           filters:
