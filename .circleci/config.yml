@@ -85,6 +85,7 @@ jobs:
           name: publish to npm
           command: |
             echo "//registry.npmjs.org/:_authToken=$CLOUD_MTA_BOT_NPM_TOKEN" > .npmrc
+            ls -la
             cp ./README.md ./LICENSE ./npmjs-pub-env
             cd ./npmjs-pub-env
             npm publish
