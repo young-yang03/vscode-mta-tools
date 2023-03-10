@@ -2,7 +2,7 @@
   "name": "@young-yang217/vscode-mta-tools",
   "displayName": "vscode-mta-tools",
   "description": "VS Code Multi-Target Application tools",
-  "version": "1.4.26",
+  "version": "1.4.27",
   "publisher": "SAPSE",
   "license": "Apache-2.0",
   "repository": {
